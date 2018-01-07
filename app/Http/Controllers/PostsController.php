@@ -24,14 +24,20 @@ class PostsController extends Controller
         //
         // $post->title = request('title');
         // $post->body = request('body');
+        // $post->save();
+
 
         // Post::create([
         //     'title' => request('title'),
         //     'body' => request('body')
         // ]);
+
+        $this->validate(request(),[
+            'title'=>'required',
+            'body'=>'required'
+        ]);
         Post::create(request(['title','body']));
 
-        // $post->save();
 
         return redirect('/');
     }
