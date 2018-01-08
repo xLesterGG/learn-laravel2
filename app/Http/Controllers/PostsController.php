@@ -8,11 +8,15 @@ use App\Post;
 class PostsController extends Controller
 {
     public function index(){
-        return view('posts.index');
+
+        $posts = Post::latest()->get();
+        return view('posts.index',compact('posts'));
     }
 
-    public function show(){
-        return view ('posts.show');
+    public function show(Post $post){ //route model binding
+
+        // $post = Post::find($id);
+        return view ('posts.show',compact('post'));
     }
 
     public function create(){
