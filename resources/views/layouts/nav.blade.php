@@ -6,6 +6,6 @@
   <a class="nav-link" href="#">About</a>
 
   @if(Auth::check())
-    <a class="nav-link ml-auto">{{Auth::user()->name}}</a>
+    <a class="nav-link text-white ml-auto">{{Auth::user()->name}}</a>
   @endif
 </nav>
